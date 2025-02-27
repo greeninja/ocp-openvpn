@@ -19,14 +19,6 @@ spec:
   template:
     metadata:
       annotations:
-        # k8s.v1.cni.cncf.io/networks: '[
-        #   {
-        #   "name": "tap",
-        #   "namespace": "{{ .Values.namespace }}",
-        #   "interface": "ext0",
-        #   "mac": "50:00:00:00:00:10"
-        #   }    
-        # ]'
       labels:
         app: {{ .Chart.Name }}
     spec:
@@ -39,6 +31,7 @@ spec:
         terminationMessagePolicy: File
         securityContext: 
           privileged: false
+          runAsUser: 0
           capabilities:
             add: ["NET_ADMIN", "MKNOD"]
       dnsPolicy: ClusterFirst
