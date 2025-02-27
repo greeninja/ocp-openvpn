@@ -31,6 +31,7 @@ spec:
         terminationMessagePolicy: File
         securityContext: 
           privileged: false
+          allowPrivilegeEscalation: true
           runAsUser: 1001
           capabilities:
             add: ["NET_ADMIN", "MKNOD"]
