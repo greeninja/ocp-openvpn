@@ -10,8 +10,6 @@ spec:
      "plugins": [
        {
          "type": "tap",
-         "owner": 0,
-         "group": 0,
          "multiQueue": true,
          "selinuxcontext": "system_u:system_r:container_t:s0"
        }
