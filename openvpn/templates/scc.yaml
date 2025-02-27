@@ -17,11 +17,6 @@ kind: SecurityContextConstraints
 metadata:
   generation: 1
   name: openvpn
-  ownerReferences:
-  - apiVersion: config.openshift.io/v1
-    controller: true
-    kind: ClusterVersion
-    name: version
 priority: null
 readOnlyRootFilesystem: false
 requiredDropCapabilities:
