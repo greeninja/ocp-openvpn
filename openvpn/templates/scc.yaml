@@ -15,7 +15,6 @@ fsGroup:
 groups: []
 kind: SecurityContextConstraints
 metadata:
-  generation: 1
   name: openvpn
 priority: null
 readOnlyRootFilesystem: false
