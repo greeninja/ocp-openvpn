@@ -32,5 +32,5 @@ spec:
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
-      terminationGracePeriodSeconds: 30\
+      terminationGracePeriodSeconds: 30
       serviceAccountName: openvpn
