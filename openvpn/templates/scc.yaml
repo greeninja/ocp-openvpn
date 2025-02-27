@@ -1,3 +1,9 @@
+kind: SecurityContextConstraints
+metadata:
+  name: openvpn
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+
 allowHostDirVolumePlugin: false
 allowHostIPC: false
 allowHostNetwork: false
@@ -13,9 +19,6 @@ defaultAddCapabilities: null
 fsGroup:
   type: MustRunAs
 groups: []
-kind: SecurityContextConstraints
-metadata:
-  name: openvpn
 priority: null
 readOnlyRootFilesystem: false
 requiredDropCapabilities:
