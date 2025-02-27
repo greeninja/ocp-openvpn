@@ -32,7 +32,7 @@ spec:
         securityContext: 
           privileged: false
           allowPrivilegeEscalation: true
-          runAsUser: 1001
+          runAsUser: 0
           capabilities:
             add: ["NET_ADMIN", "MKNOD"]
       dnsPolicy: ClusterFirst
