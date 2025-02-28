@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - image: {{ .Values.registry }}/{{ .Values.namespace}}/{{ .Values.image }}:latest
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         name: openvpn-server
         resources: {}
         terminationMessagePath: /dev/termination-log
@@ -42,6 +42,7 @@ spec:
           readOnly: true
       initContainers:
       - name: openshift-init
+        imagePullPolicy: Always
         image: {{ .Values.registry }}/{{ .Values.namespace}}/{{ .Values.init_image }}:latest
         volumeMounts:
         - mountPath: /etc/openvpn/server
