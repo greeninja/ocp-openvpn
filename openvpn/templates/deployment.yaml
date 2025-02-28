@@ -39,8 +39,8 @@ spec:
           name: openvpn-config
       volumes:
       - name: openvpn-config
-        persistentVolumeClaim:
-          claimName: openvpn-config1
+        emptyDir:
+          sizeLimit: 500Mi
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
