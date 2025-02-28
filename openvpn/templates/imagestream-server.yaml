@@ -1,0 +1,8 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: ocp-openvpn-server
+  namespace: {{ .Values.namespace }}
+spec:
+  lookupPolicy:
+    local: false

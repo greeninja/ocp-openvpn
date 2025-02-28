@@ -1,6 +1,6 @@
 FROM registry.redhat.io/ubi8/ubi
 
 RUN rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-RUN dnf install -y openvpn easy-rsa
+RUN dnf install -y openvpn
 
-ENTRYPOINT [ "sleep 600" ]
+ENTRYPOINT [ "openvpn --cd /etc/openvpn/server --config /etc/openvpn/server/server.conf" ]

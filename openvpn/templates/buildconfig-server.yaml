@@ -1,0 +1,31 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: ocp-openvpn-server
+  namespace: {{ .Values.namespace }}
+spec:
+  failedBuildsHistoryLimit: 5
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: ocp-openvpn-server:latest
+  postCommit: {}
+  resources: {}
+  runPolicy: Serial
+  source:
+    git:
+      ref: dev
+      uri: https://github.com/greeninja/ocp-openvpn.git
+    type: Git
+    contextDir: openvpn-server
+  strategy:
+    dockerStrategy:
+      dockerfilePath: Containerfile
+      from:
+        kind: DockerImage
+        name: registry.redhat.io/ubi8/ubi
+    type: Docker
+  successfulBuildsHistoryLimit: 5
+  triggers:
+  - type: ConfigChange

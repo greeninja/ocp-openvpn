@@ -1,0 +1,35 @@
+FROM registry.redhat.io/ubi8/ubi
+
+RUN rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+RUN dnf install -y openvpn easy-rsa
+# Setup PKI & certs
+RUN mkdir /easy-rsa
+WORKDIR /easy-rsa
+RUN cp -rd /usr/share/easy-rsa/3/* /easy-rsa/
+COPY files/vars /easy-rsa/vars
+RUN ./easyrsa init-pki
+RUN echo 'testing' | ./easyrsa build-ca
+RUN ./easyrsa gen-req server batch
+RUN cp pki/private/server.key pki/ca.crt /etc/openvpn/server/
+RUN yes yes | ./easyrsa sign-req server server
+RUN cp pki/issued/server.crt /etc/openvpn/server/
+# Setup extra security
+RUN openvpn --genkey --secret ta.key
+RUN cp ta.key /etc/openvpn/server/
+# Generate client keys
+RUN mkdir client-configs
+RUN echo 'client1' | ./easyrsa gen-req client1
+RUN yes yes | ./easyrsa sign-req client client1
+RUN cp pki/private/client1.key pki/issued/client1.crt ta.key client-configs/
+# Copy openvpn config file
+COPY files/server.conf /etc/openvpn/server/server.conf
+
+
+
+
+
+
+
+
+
+#ENTRYPOINT [ "sleep 600" ]
