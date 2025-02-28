@@ -41,7 +41,7 @@ spec:
           name: net-tun
           readOnly: true
       initContainers:
-      - name: openshift-init
+      - name: openvpn-init
         imagePullPolicy: Always
         image: {{ .Values.registry }}/{{ .Values.namespace}}/{{ .Values.init_image }}:latest
         volumeMounts:
@@ -49,8 +49,7 @@ spec:
           name: openvpn-server
       volumes:
       - name: openvpn-server
-        emptyDir:
-          sizeLimit: 500Mi
+        emptyDir: {}
       - name: net-tun
         hostPath:
           path: /dev/net/tun
