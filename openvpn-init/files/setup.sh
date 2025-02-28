@@ -8,4 +8,6 @@ cp ta.key /etc/openvpn/server/
 cp pki/private/client1.key pki/issued/client1.crt ta.key /etc/openvpn/client/
 cp server.conf /etc/openvpn/server/server.conf
 
+sleep 300
+
 echo "Ready to start now..."

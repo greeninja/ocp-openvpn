@@ -28,12 +28,3 @@ COPY files/setup.sh setup.sh
 RUN chmod 755 setup.sh
 
 ENTRYPOINT [ "/easy-rsa/setup.sh" ]
-
-
-
-
-
-
-
-
-#ENTRYPOINT [ "sleep 600" ]
