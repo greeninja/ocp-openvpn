@@ -1,7 +1,7 @@
 apiVersion: build.openshift.io/v1
 kind: BuildConfig
 metadata:
-  name: ocp-openvpn-init
+  name: {{ .Values.init-image }}
   namespace: {{ .Values.namespace }}
 spec:
   failedBuildsHistoryLimit: 5
@@ -9,13 +9,13 @@ spec:
   output:
     to:
       kind: ImageStreamTag
-      name: ocp-openvpn-init:latest
+      name: {{ .Values.init-image }}:latest
   postCommit: {}
   resources: {}
   runPolicy: Serial
   source:
     git:
-      ref: dev
+      ref: {{ .Values.branch }}
       uri: https://github.com/greeninja/ocp-openvpn.git
     type: Git
     contextDir: openvpn-init
