@@ -23,7 +23,7 @@ spec:
         app: {{ .Chart.Name }}
     spec:
       containers:
-      - image: {{ .Values.image }}
+      - image: {{ .Values.registry }}/{{ .Values.namespace}}/{{ .Values.image }}:latest
         imagePullPolicy: IfNotPresent
         name: openvpn-server
         resources: {}
@@ -42,7 +42,7 @@ spec:
           readOnly: true
       initContainers:
       - name: openshift-init
-        image: {{ .Values.init_image }}
+        image: {{ .Values.registry }}/{{ .Values.namespace}}/{{ .Values.init_image }}:latest
         volumeMounts:
         - mountPath: /etc/openvpn/server
           name: openvpn-server
