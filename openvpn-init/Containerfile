@@ -24,6 +24,10 @@ RUN yes yes | ./easyrsa sign-req client client1
 # Copy openvpn config file
 COPY files/server.conf server.conf
 # RUN cp server.cnf /etc/openvpn/server/server.conf
+COPY files/setup.sh setup.sh
+RUN chmod 755 setup.sh
+
+ENTRYPOINT [ "/easy-rsa/setup.sh" ]
 
 
 
