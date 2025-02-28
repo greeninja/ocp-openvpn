@@ -39,7 +39,7 @@ spec:
           name: openvpn-server
         - mountPath: /dev/net/tun
           name: net-tun
-          readOnly: true
+          readOnly: false
       initContainers:
       - name: openvpn-init
         imagePullPolicy: Always
