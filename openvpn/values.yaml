@@ -1,4 +1,4 @@
 namespace: openvpn
 image: ocp-openvpn-server
-init-image: ocp-openvpn-init
+init_image: ocp-openvpn-init
 branch: dev

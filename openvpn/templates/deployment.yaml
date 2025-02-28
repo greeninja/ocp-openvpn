@@ -42,7 +42,7 @@ spec:
           readOnly: true
       initContainers:
       - name: openshift-init
-        image: {{ .Values.init-image }}
+        image: {{ .Values.init_image }}
         volumeMounts:
         - mountPath: /etc/openvpn/server
           name: openvpn-server

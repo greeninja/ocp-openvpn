@@ -1,7 +1,7 @@
 apiVersion: build.openshift.io/v1
 kind: BuildConfig
 metadata:
-  name: {{ .Values.init-image }}
+  name: {{ .Values.init_image }}
   namespace: {{ .Values.namespace }}
 spec:
   failedBuildsHistoryLimit: 5
@@ -9,7 +9,7 @@ spec:
   output:
     to:
       kind: ImageStreamTag
-      name: {{ .Values.init-image }}:latest
+      name: {{ .Values.init_image }}:latest
   postCommit: {}
   resources: {}
   runPolicy: Serial
