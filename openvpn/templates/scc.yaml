@@ -2,7 +2,7 @@ kind: SecurityContextConstraints
 metadata:
   name: openvpn
   annotations: {}
-allowHostDirVolumePlugin: false
+allowHostDirVolumePlugin: true
 allowHostIPC: false
 allowHostNetwork: false
 allowHostPID: false
@@ -32,6 +32,7 @@ supplementalGroups:
 users:
 - system:serviceaccount:{{ .Values.namespace }}:openvpn
 volumes:
+- hostPath
 - configMap
 - csi
 - downwardAPI
