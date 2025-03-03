@@ -18,6 +18,12 @@ spec:
   template:
     metadata:
       annotations:
+        k8s.v1.cni.cncf.io/networks: |-
+          [{
+            "name": "nctap",
+            "namespace": "{{ .Values.namespace }}",
+            "mac": "00:11:22:33:44:55"
+          }]
       labels:
         app: {{ .Chart.Name }}
     spec:

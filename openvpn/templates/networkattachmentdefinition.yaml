@@ -5,14 +5,12 @@ metadata:
   namespace: {{ .Values.namespace }}
 spec:
   config: '{
-    "name": "mynet",
+    "name": "nctap",
     "cniVersion": "0.3.1",
     "type": "tap",
-    "mac": "00:11:22:33:44:55",
     "mtu": 1500,
     "selinuxcontext": "system_u:system_r:container_t:s0",
     "multiQueue": true,
     "owner": 0,
-    "group": 0,
-    "bridge": "br1"
+    "group": 0
   }'
