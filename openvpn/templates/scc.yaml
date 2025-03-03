@@ -11,6 +11,7 @@ allowPrivilegeEscalation: false
 allowPrivilegedContainer: false
 allowedCapabilities:
 - NET_ADMIN
+- NET_RAW
 - MKNOD
 apiVersion: security.openshift.io/v1
 defaultAddCapabilities: null
