@@ -3,7 +3,6 @@ metadata:
   name: openvpn
   annotations:
     argocd.argoproj.io/sync-wave: "1"
-
 allowHostDirVolumePlugin: false
 allowHostIPC: false
 allowHostNetwork: false
