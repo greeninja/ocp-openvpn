@@ -17,14 +17,14 @@ spec:
     type: Recreate
   template:
     metadata:
-      annotations:
-        k8s.v1.cni.cncf.io/networks: |-
-          [{
-            "name": "nctap",
-            "namespace": "{{ .Values.namespace }}",
-            "interface": "ext0",
-            "mac": "00:11:22:33:44:55"
-          }]
+      annotations: {}
+        # k8s.v1.cni.cncf.io/networks: |-
+        #   [{
+        #     "name": "nctap",
+        #     "namespace": "{{ .Values.namespace }}",
+        #     "interface": "ext0",
+        #     "mac": "00:11:22:33:44:55"
+        #   }]
       labels:
         app: {{ .Chart.Name }}
     spec:
@@ -43,9 +43,9 @@ spec:
         volumeMounts:
         - mountPath: /etc/openvpn/server
           name: openvpn-server
-        # - mountPath: /dev/net/tun
-        #   name: net-tun
-        #   readOnly: false
+        - mountPath: /dev/net/tun
+          name: net-tun
+          readOnly: false
       initContainers:
       - name: openvpn-init
         imagePullPolicy: Always
