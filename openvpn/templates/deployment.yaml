@@ -36,9 +36,9 @@ spec:
         volumeMounts:
         - mountPath: /etc/openvpn/server
           name: openvpn-server
-        - mountPath: /dev/net/tun
-          name: net-tun
-          readOnly: false
+        # - mountPath: /dev/net/tun
+        #   name: net-tun
+        #   readOnly: false
       initContainers:
       - name: openvpn-init
         imagePullPolicy: Always
