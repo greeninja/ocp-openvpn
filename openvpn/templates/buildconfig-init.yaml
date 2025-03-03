@@ -3,7 +3,6 @@ kind: BuildConfig
 metadata:
   name: {{ .Values.init_image }}
   namespace: {{ .Values.namespace }}
-  argocd.argoproj.io/sync-wave: "3"
 spec:
   failedBuildsHistoryLimit: 5
   nodeSelector: null

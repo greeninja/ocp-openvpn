@@ -3,7 +3,6 @@ kind: ImageStream
 metadata:
   name: {{ .Values.init_image }}
   namespace: {{ .Values.namespace }}
-  argocd.argoproj.io/sync-wave: "2"
 spec:
   lookupPolicy:
     local: false

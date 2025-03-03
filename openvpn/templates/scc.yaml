@@ -1,8 +1,7 @@
 kind: SecurityContextConstraints
 metadata:
   name: openvpn
-  annotations:
-    argocd.argoproj.io/sync-wave: "1"
+  annotations: {}
 allowHostDirVolumePlugin: false
 allowHostIPC: false
 allowHostNetwork: false
