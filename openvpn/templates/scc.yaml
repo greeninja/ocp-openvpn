@@ -32,12 +32,12 @@ supplementalGroups:
 users:
 - system:serviceaccount:{{ .Values.namespace }}:openvpn
 volumes:
-- hostPath
 - configMap
 - csi
 - downwardAPI
 - emptyDir
 - ephemeral
+- hostPath
 - persistentVolumeClaim
 - projected
 - secret
