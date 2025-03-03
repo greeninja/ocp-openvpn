@@ -39,7 +39,7 @@ spec:
           privileged: true
           runAsUser: 0
           capabilities:
-            add: ["NET_ADMIN", "MKNOD", "NET_RAW"]
+            add: ["NET_ADMIN", "MKNOD", "NET_RAW", "NET_BIND_SERVICE"]
         volumeMounts:
         - mountPath: /etc/openvpn/server
           name: openvpn-server
