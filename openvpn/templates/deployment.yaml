@@ -17,7 +17,8 @@ spec:
     type: Recreate
   template:
     metadata:
-      annotations: {}
+      annotations:
+        io.kubernetes.cri-o.Devices: "/dev/net/tun"
         # k8s.v1.cni.cncf.io/networks: |-
         #   [{
         #     "name": "nctap",
@@ -46,9 +47,9 @@ spec:
         volumeMounts:
         - mountPath: /etc/openvpn/server
           name: openvpn-server
-        - mountPath: /dev/net/tun
-          name: net-tun
-          readOnly: false
+        # - mountPath: /dev/net/tun
+        #   name: net-tun
+        #   readOnly: false
       initContainers:
       - name: openvpn-init
         imagePullPolicy: Always
@@ -59,9 +60,9 @@ spec:
       volumes:
       - name: openvpn-server
         emptyDir: {}
-      - name: net-tun
-        hostPath:
-          path: /dev/net/tun
+      # - name: net-tun
+      #   hostPath:
+      #     path: /dev/net/tun
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
