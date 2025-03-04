@@ -7,4 +7,4 @@ spec:
    matchLabels:
      pools.operator.machineconfiguration.openshift.io/master: ""
  containerRuntimeConfig:
-   allowed_devices: ["/dev/net/tun"]
+   allowedDevices: ["/dev/net/tun"]
