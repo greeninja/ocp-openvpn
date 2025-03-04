@@ -33,7 +33,8 @@ spec:
         imagePullPolicy: Always
         name: openvpn-server
         command:
-          - "sleep 600"
+          - "/usr/bin/sleep"
+          - "600"
         resources: {}
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
