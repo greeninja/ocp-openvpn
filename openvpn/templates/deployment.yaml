@@ -18,7 +18,7 @@ spec:
   template:
     metadata:
       annotations:
-        io.kubernetes.cri-o.Devices: "/dev/fuse"
+        io.kubernetes.cri-o.Devices: "/dev/fuse,/dev/net/tun"
         # k8s.v1.cni.cncf.io/networks: |-
         #   [{
         #     "name": "nctap",
