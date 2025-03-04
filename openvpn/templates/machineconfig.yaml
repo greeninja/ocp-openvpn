@@ -24,3 +24,13 @@ spec:
 
           [Install]
           WantedBy=multi-user.target graphical.target
+        storage:
+    files:
+      - path: /etc/crio/crio.conf.d/99-ciro-allowed-devices
+        mode: 0644 
+        overwrite: true
+        contents:
+          inline: |
+            [crio]
+              [crio.runtime]
+                allowed_devices = ["/dev/fuse","/dev/net/tun"]
