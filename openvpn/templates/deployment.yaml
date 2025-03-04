@@ -32,6 +32,8 @@ spec:
       - image: {{ .Values.registry }}/{{ .Values.namespace}}/{{ .Values.image }}:latest
         imagePullPolicy: Always
         name: openvpn-server
+        command:
+          - "sleep 600"
         resources: {}
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
