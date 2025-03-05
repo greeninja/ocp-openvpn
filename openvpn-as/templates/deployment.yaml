@@ -37,7 +37,7 @@ spec:
         command:
           - "openvpn"
           - "--cd"
-          - "/etc/openvpn"
+          - "/openvpn-logs"
           - "--config"
           - "/etc/openvpn/server.conf"
         volumeMounts:
@@ -46,6 +46,8 @@ spec:
         - mountPath: /etc/openvpn/server.conf
           name: openvpn-cm
           subPath: server.conf
+        - mountPath: /openvpn-logs
+          name: logs
       volumes:
       - name: openvpn-secret
         secret:
@@ -53,6 +55,8 @@ spec:
       - name: openvpn-cm
         configMap:
           name: openvpn
+      - name: logs
+        emptyDir: {}
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
