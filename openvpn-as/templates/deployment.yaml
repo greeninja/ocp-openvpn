@@ -34,6 +34,12 @@ spec:
           runAsUser: 1001
           capabilities:
             add: ["NET_ADMIN", "MKNOD", "NET_RAW", "NET_BIND_SERVICE","SETUID", "SETGID"]
+        volumeMounts:
+        - mountPath: /openvpn
+          name: openvpn-as
+      volumes:
+      - name: openvpn-as
+        emptyDir: {}
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
