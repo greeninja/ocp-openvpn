@@ -2,7 +2,7 @@ kind: SecurityContextConstraints
 metadata:
   name: openvpn-as
   annotations: {}
-allowHostDirVolumePlugin: true
+allowHostDirVolumePlugin: false
 allowHostIPC: false
 allowHostNetwork: false
 allowHostPID: false
