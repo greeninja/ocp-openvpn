@@ -9,5 +9,6 @@ spec:
     app: {{ .Chart.Name }}
   ports:
     - port: 1194
+      protocol: UDP
       targetPort: 1194
       nodePort: 31194
