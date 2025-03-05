@@ -1,0 +1,26 @@
+apiVersion: machineconfiguration.openshift.io/v1
+kind: MachineConfig
+metadata:
+  labels:
+    machineconfiguration.openshift.io/role: master
+  name: 99-master-setsebool-tuntap
+spec:
+  config:
+    ignition:
+      version: 3.4.0
+    systemd:
+      units:
+      - enabled: true
+        name: setsebool.service
+        contents: |
+          [Unit]
+          Description=Set SELinux boolean for tuntap devices
+          Before=kubelet.service
+
+          [Service]
+          Type=oneshot
+          ExecStart=/usr/sbin/setsebool container_use_devices=on domain_kernel_load_modules=on
+          RemainAfterExit=true
+
+          [Install]
+          WantedBy=multi-user.target
