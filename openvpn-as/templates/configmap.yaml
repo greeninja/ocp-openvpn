@@ -6,7 +6,7 @@ metadata:
 data:
   server.conf: |+
     port 1194
-    proto udp
+    proto tcp
     dev tun
     ca /etc/openvpn/server/ca.crt
     cert /etc/openvpn/server/server.crt
@@ -46,4 +46,4 @@ data:
     ;log-append  openvpn.log
 
     verb 3
-    explicit-exit-notify 1
+    ;explicit-exit-notify 1
