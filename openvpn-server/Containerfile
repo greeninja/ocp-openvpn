@@ -3,8 +3,5 @@ FROM registry.redhat.io/ubi8/ubi
 RUN rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 RUN dnf install -y openvpn
 
-COPY files/user.sh /user.sh 
-RUN chmod g=u /etc/passwd && chmod 775 /user.sh
-
 ENTRYPOINT ["user.sh"]
 CMD [ "/usr/sbin/openvpn", "--cd", "/etc/openvpn/server", "--config", "/etc/openvpn/server/server.conf" ]
