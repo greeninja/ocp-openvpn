@@ -34,9 +34,6 @@ spec:
           runAsUser: 0
           capabilities:
             add: ["NET_ADMIN", "MKNOD", "NET_RAW", "NET_BIND_SERVICE","SETUID", "SETGID"]
-        command:
-          - "sleep"
-          - "600"
         volumeMounts:
         - mountPath: /etc/openvpn/server
           name: openvpn-secret
