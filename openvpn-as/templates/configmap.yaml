@@ -6,7 +6,7 @@ metadata:
 data:
   server.conf: |+
     port 1194
-    proto tcp
+    proto udp
     dev tun
     ca /etc/openvpn/server/ca.crt
     cert /etc/openvpn/server/server.crt
