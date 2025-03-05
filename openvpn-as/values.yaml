@@ -1,3 +1,4 @@
 namespace: openvpn-as
-image: openvpn/openvpn-as
+image: ocp-openvpn-server
+registry: image-registry.openshift-image-registry.svc:5000
 branch: dev
