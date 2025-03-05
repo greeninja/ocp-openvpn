@@ -31,9 +31,9 @@ COPY files/server.conf server.conf
 COPY --chown=openvpn:0 files/setup.sh setup.sh
 RUN chmod 775 setup.sh
 
-COPY files/user.sh user.sh
+COPY files/user.sh /user.sh
 USER root
-RUN chmod g=u /etc/passwd && chmod 775 user.sh
+RUN chmod g=u /etc/passwd && chmod 775 /user.sh
 
 ENTRYPOINT ["user.sh"]
 CMD [ "/bin/bash", "-c", "/easy-rsa/setup.sh" ]
