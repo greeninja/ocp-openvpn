@@ -4,6 +4,8 @@ RUN rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.
 RUN dnf install -y openvpn easy-rsa
 # Setup PKI & certs
 RUN mkdir /easy-rsa
+RUN chown openvpn:openvpn /easy-rsa
+USER openvpn
 WORKDIR /easy-rsa
 RUN cp -rd /usr/share/easy-rsa/3/* /easy-rsa/
 COPY files/vars /easy-rsa/vars
@@ -25,6 +27,5 @@ RUN yes yes | ./easyrsa sign-req client client1
 COPY files/server.conf server.conf
 # RUN cp server.cnf /etc/openvpn/server/server.conf
 COPY files/setup.sh setup.sh
-RUN chmod 755 setup.sh
 
-ENTRYPOINT [ "/easy-rsa/setup.sh" ]
+ENTRYPOINT [ "/bin/bash", "-c", "/easy-rsa/setup.sh" ]
