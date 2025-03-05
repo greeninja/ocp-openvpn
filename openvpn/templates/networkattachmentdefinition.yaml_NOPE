@@ -1,16 +1,16 @@
-apiVersion: k8s.cni.cncf.io/v1
-kind: NetworkAttachmentDefinition
-metadata:
-  name: nctap
-  namespace: {{ .Values.namespace }}
-spec:
-  config: '{
-    "name": "nctap",
-    "cniVersion": "0.3.1",
-    "type": "tap",
-    "mtu": 1500,
-    "selinuxcontext": "system_u:system_r:container_t:s0",
-    "multiQueue": true,
-    "owner": 0,
-    "group": 0
-  }'
+# apiVersion: k8s.cni.cncf.io/v1
+# kind: NetworkAttachmentDefinition
+# metadata:
+#   name: nctap
+#   namespace: {{ .Values.namespace }}
+# spec:
+#   config: '{
+#     "name": "nctap",
+#     "cniVersion": "0.3.1",
+#     "type": "tap",
+#     "mtu": 1500,
+#     "selinuxcontext": "system_u:system_r:container_t:s0",
+#     "multiQueue": true,
+#     "owner": 0,
+#     "group": 0
+#   }'
