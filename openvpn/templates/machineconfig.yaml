@@ -30,7 +30,4 @@ spec:
         mode: 0644 
         overwrite: true
         contents:
-          inline: |
-            [crio]
-              [crio.runtime]
-                allowed_devices = ["/dev/fuse","/dev/net/tun"]
+          source: data:text/plain;charset=utf-8;base64,W2NyaW8ucnVudGltZV0KYWxsb3dlZF9kZXZpY2VzID0gWyIvZGV2L2Z1c2UiLCIvZGV2L25ldC90dW4iXQo=
