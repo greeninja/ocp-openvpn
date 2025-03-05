@@ -23,7 +23,7 @@ spec:
         app: {{ .Chart.Name }}
     spec:
       containers:
-      - image: {{ .Values.registry }}/{{ .Values.namespace}}/{{ .Values.init_image }}:latest
+      - image: {{ .Values.registry }}/{{ .Values.namespace}}/{{ .Values.image }}:latest
         imagePullPolicy: IfNotPresent
         name: openvpn-server
         resources: {}
