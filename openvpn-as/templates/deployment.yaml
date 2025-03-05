@@ -42,7 +42,7 @@ spec:
           name: openvpn-secret
         - mountPath: /etc/openvpn/server.conf
           name: openvpn-cm
-          subpath: /etc/openvpn/server.conf
+          subPath: server.conf
       volumes:
       - name: openvpn-secret
         secret:
