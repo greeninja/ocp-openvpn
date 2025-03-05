@@ -35,5 +35,5 @@ COPY files/user.sh /user.sh
 USER root
 RUN chmod g=u /etc/passwd && chmod 775 /user.sh
 
-ENTRYPOINT ["user.sh"]
+ENTRYPOINT ["/user.sh"]
 CMD [ "/bin/bash", "-c", "/easy-rsa/setup.sh" ]
