@@ -19,13 +19,6 @@ spec:
     metadata:
       annotations:
         io.kubernetes.cri-o.Devices: "/dev/fuse,/dev/net/tun"
-        # k8s.v1.cni.cncf.io/networks: |-
-        #   [{
-        #     "name": "nctap",
-        #     "namespace": "{{ .Values.namespace }}",
-        #     "interface": "ext0",
-        #     "mac": "00:11:22:33:44:55"
-        #   }]
       labels:
         app: {{ .Chart.Name }}
     spec:
@@ -33,9 +26,6 @@ spec:
       - image: {{ .Values.registry }}/{{ .Values.namespace}}/{{ .Values.image }}:latest
         imagePullPolicy: Always
         name: openvpn-server
-        command:
-          - "/usr/bin/sleep"
-          - "600"
         resources: {}
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
@@ -47,9 +37,6 @@ spec:
         volumeMounts:
         - mountPath: /etc/openvpn/server
           name: openvpn-server
-        # - mountPath: /dev/net/tun
-        #   name: net-tun
-        #   readOnly: false
       initContainers:
       - name: openvpn-init
         imagePullPolicy: Always
@@ -60,9 +47,6 @@ spec:
       volumes:
       - name: openvpn-server
         emptyDir: {}
-      # - name: net-tun
-      #   hostPath:
-      #     path: /dev/net/tun
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
