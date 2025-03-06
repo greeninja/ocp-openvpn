@@ -1,5 +1,0 @@
-namespace: openvpn
-image: ocp-openvpn-server
-init_image: ocp-openvpn-init
-registry: image-registry.openshift-image-registry.svc:5000
-branch: dev
