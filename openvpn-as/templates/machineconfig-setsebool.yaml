@@ -19,7 +19,8 @@ spec:
 
           [Service]
           Type=oneshot
-          ExecStart=/usr/sbin/setsebool container_use_devices=on domain_kernel_load_modules=on
+          # ExecStart=/usr/sbin/setsebool container_use_devices=on domain_kernel_load_modules=on
+          ExecStart=/usr/sbin/setsebool domain_kernel_load_modules=on
           RemainAfterExit=true
 
           [Install]
