@@ -1,0 +1,9 @@
+set_var EASYRSA_REQ_COUNTRY    "GB"
+set_var EASYRSA_REQ_PROVINCE   "UK"
+set_var EASYRSA_REQ_CITY       "City"
+set_var EASYRSA_REQ_ORG        "OpenVPN Test"
+set_var EASYRSA_REQ_EMAIL      "123@123.com"
+set_var EASYRSA_REQ_OU         "Community"
+set_var EASYRSA_ALGO           "ec"
+set_var EASYRSA_DIGEST         "sha512"
+set_var EASYRSA_NO_PASS          1
