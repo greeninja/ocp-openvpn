@@ -33,7 +33,7 @@ spec:
           privileged: false
           runAsUser: 0
           capabilities:
-            add: ["NET_ADMIN", "MKNOD","SETUID", "SETGID"]
+            add: ["NET_ADMIN","SETUID", "SETGID"]
         command:
           - "openvpn"
           - "--cd"
