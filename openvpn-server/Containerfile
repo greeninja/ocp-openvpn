@@ -3,4 +3,4 @@ FROM registry.redhat.io/ubi8/ubi
 RUN rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 RUN dnf install -y openvpn
 
-CMD [ "/usr/sbin/openvpn", "--cd", "/etc/openvpn", "--config", "/etc/openvpn/server/server.conf" ]
+CMD [ "/usr/sbin/openvpn", "--cd", "/etc/openvpn", "--config", "/etc/openvpn/server.conf" ]
