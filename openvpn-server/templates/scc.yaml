@@ -1,6 +1,6 @@
 kind: SecurityContextConstraints
 metadata:
-  name: openvpn-as
+  name: openvpn-server
   annotations: {}
 allowHostDirVolumePlugin: false
 allowHostIPC: false
@@ -11,9 +11,6 @@ allowPrivilegeEscalation: false
 allowPrivilegedContainer: false
 allowedCapabilities:
 - NET_ADMIN
-# - NET_RAW
-# - NET_BIND_SERVICE
-# - MKNOD
 - SETUID
 - SETGID
 apiVersion: security.openshift.io/v1
@@ -34,7 +31,7 @@ seccompProfiles:
 supplementalGroups:
   type: RunAsAny
 users:
-- system:serviceaccount:{{ .Values.namespace }}:openvpn-as
+- system:serviceaccount:{{ .Values.namespace }}:openvpn-server
 volumes:
 - configMap
 - csi
